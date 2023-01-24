@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - fire
+  - air
+  - grass
+  - water
+  - player
+  - ennemy
   layers:
   - Default
   - TransparentFX

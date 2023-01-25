@@ -553,7 +553,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1724691951}
+  m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1724691951}
   m_Lens:
     FieldOfView: 60
@@ -995,6 +995,26 @@ PrefabInstance:
     - target: {fileID: 3842608661960120550, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842608661960120569, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842608661960120569, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}
+      propertyPath: maxAirAcceleration
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842608661960120570, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}
+      propertyPath: jumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842608661960120570, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}
+      propertyPath: upwardMovementMultiplier
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3842608661960120570, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}
+      propertyPath: downwardMovementMultiplier
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d2ed673fdad0d439c163b52c0f6e3c, type: 3}

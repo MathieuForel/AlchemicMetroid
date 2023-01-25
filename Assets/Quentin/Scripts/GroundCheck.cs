@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
-{
-    private bool isGrounded;
-    private float friction;
+{   
+    public bool isGrounded { get; private set; }
+    public float friction { get; private set; }
+    private PhysicsMaterial2D material;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,7 +37,7 @@ public class GroundCheck : MonoBehaviour
 
     private void RetreiveFriction(Collision2D collision)
     {
-        PhysicsMaterial2D material = collision.rigidbody.sharedMaterial;
+        material = collision.rigidbody.sharedMaterial;
 
         friction = 0;
 

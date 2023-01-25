@@ -14,4 +14,9 @@ public class AIController : InputController
     {
         return 1f;
     }
+
+    public override float RetreiveVerticalInput()
+    {
+        return 2f;
+    }
 }

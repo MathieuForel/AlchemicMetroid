@@ -14,4 +14,10 @@ public class PlayerController : InputController
     {
         return Input.GetAxisRaw("Horizontal");
     }
+
+    public override float RetreiveVerticalInput()
+    {
+        return Input.GetAxisRaw("Vertical");
+    }
 }
+

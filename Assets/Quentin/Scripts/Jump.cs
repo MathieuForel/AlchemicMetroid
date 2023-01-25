@@ -20,6 +20,9 @@ public class Jump : MonoBehaviour
     private bool desiredJump;
     private bool isGrounded;
 
+    //private Collider2D colliderUp;
+    //private Collider2D colliderDown;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -35,6 +38,7 @@ public class Jump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //RayCheck();
         isGrounded = ground.GetIsGrounded();
         velocity = body.velocity;
 
@@ -79,4 +83,33 @@ public class Jump : MonoBehaviour
             velocity.y += jumpSpeed;
         }
     }
+
+    /*public void RayCheck()
+    {
+        //regarde si il y a une plateforme au dessus ou en dessous de l'objet
+        RaycastHit2D hitUp = Physics2D.Raycast(this.gameObject.transform.position, Vector2.up, Mathf.Infinity, LayerMask.GetMask("Ground"));
+        RaycastHit2D hitDown = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, Mathf.Infinity, LayerMask.GetMask("Ground"));
+
+        //cas plateforme au dessus
+        if (hitUp.distance > 0f && hitUp.distance <= 3f && hitUp.collider.tag == "Plateform")
+        {
+            Debug.Log("distance to object " + hitUp.distance);
+            colliderUp = hitUp.collider;
+        }
+        else
+        {
+            Debug.Log("Nothing upward");
+        }
+
+        //cas plateforme en dessous
+        if (hitDown.distance > 0f && hitDown.distance <= 3f && hitDown.collider.tag == "Plateform")
+        {
+            Debug.Log("distance to object " + hitDown.distance);
+            colliderDown = hitDown.collider;
+        }
+        else
+        {
+            Debug.Log("Nothing downward");
+        }
+    }*/
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3842608661960120569}
   - component: {fileID: 3842608661960120570}
   - component: {fileID: 3842608661960120568}
+  - component: {fileID: 1779070148}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -124,7 +125,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3842608661960120547}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -272,9 +273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 596d4bdaa169e6a42b57b2fb2de58e6f, type: 2}
-  maxSpeed: 4
+  maxSpeed: 10
   maxAcceleration: 35
-  maxAirAcceleration: 20
+  maxAirAcceleration: 30
 --- !u!114 &3842608661960120570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,10 +289,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 596d4bdaa169e6a42b57b2fb2de58e6f, type: 2}
-  jumpHeight: 3
+  jumpHeight: 5
   maxAirJumps: 0
-  downwardMovementMultiplier: 3
-  upwardMovementMultiplier: 1.7
+  downwardMovementMultiplier: 3.5
+  upwardMovementMultiplier: 2.5
 --- !u!114 &3842608661960120568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,5 +303,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7823636f74feb984fa30a0cb2ce8e912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1779070148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842608661960120547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d36b1ae1e1d3a49b745694e334fc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

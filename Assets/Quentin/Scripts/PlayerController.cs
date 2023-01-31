@@ -7,7 +7,7 @@ public class PlayerController : InputController
 {
     public override bool RetreiveJumpInput()
     {
-        return Input.GetButtonDown("Jump");
+        return Input.GetKeyDown("z");
     }
 
     public override float RetreiveMoveInput()
@@ -15,9 +15,14 @@ public class PlayerController : InputController
         return Input.GetAxisRaw("Horizontal");
     }
 
-    public override float RetreiveVerticalInput()
+    public override bool RetreiveVerticalInput()
     {
-        return Input.GetAxisRaw("Vertical");
+        return Input.GetKeyDown("s");
+    }
+
+    public override bool RetreiveAttackInput()
+    {
+        return Input.GetKeyDown("space");
     }
 }
 

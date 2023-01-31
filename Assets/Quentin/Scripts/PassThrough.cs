@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class PassThrough : MonoBehaviour
 {
+    [Header("Input type")]
+    [SerializeField] private InputController input = null;
+
     private Collider2D colliderUp;
     private Collider2D colliderDown;
 
+    private bool isCrouching;
+
     private void Update()
+    {
+        isCrouching |= input.RetreiveVerticalInput();
+    }
+
+    private void FixedUpdate() 
     {
         RayCheck();
     }
@@ -22,58 +32,42 @@ public class PassThrough : MonoBehaviour
         //cas plateforme au dessus
         if (hitUp.distance > 0f && hitUp.distance <= 3f && hitUp.collider.tag == "Plateform")
         {
-            Debug.Log("distance to object " + hitUp.distance);
+            //Debug.Log("distance to object " + hitUp.distance);
             colliderUp = hitUp.collider;
             StartCoroutine(ColliderCooldown(hitUp.collider));
         }
-        else
-        {
-            Debug.Log("Nothing upward");
-        }
+        //else{Debug.Log("Nothing upward");}
 
-        //cas plateforme à droite
+        //cas plateforme a droite
         if (hitRight.distance > 0f && hitRight.distance <= 3f && hitRight.collider.tag == "Plateform")
         {
-            Debug.Log("distance to object " + hitRight.distance);
+            //Debug.Log("distance to object " + hitRight.distance);
             colliderUp = hitRight.collider;
             StartCoroutine(ColliderCooldown(hitRight.collider));
         }
-        else
-        {
-            Debug.Log("Nothing right");
-        }
+        //else{Debug.Log("Nothing right");}
 
-        //cas plateforme à gauche
+        //cas plateforme a gauche
         if (hitLeft.distance > 0f && hitLeft.distance <= 3f && hitLeft.collider.tag == "Plateform")
         {
-            Debug.Log("distance to object " + hitLeft.distance);
+            //Debug.Log("distance to object " + hitLeft.distance);
             colliderUp = hitLeft.collider;
             StartCoroutine(ColliderCooldown(hitLeft.collider));
         }
-        else
-        {
-            Debug.Log("Nothing left");
-        }
+        //else{Debug.Log("Nothing left");}
 
         //cas plateforme en dessous
-        if (hitDown.distance > 0f && hitDown.distance <= 3f && hitDown.collider.tag == "Plateform")
+        if (hitDown.distance > 0f && hitDown.distance <= 3f && hitDown.collider.tag == "Plateform" && isCrouching)
         {
-            Debug.Log("distance to object " + hitDown.distance);
+            //Debug.Log("distance to object " + hitDown.distance);
             colliderDown = hitDown.collider;
+            isCrouching = false;
+            StartCoroutine(ColliderCooldown(hitDown.collider));
         }
-        else
-        {
-            Debug.Log("Nothing downward");
-        }
+        //else{Debug.Log("Nothing downward");}
 
     }
-
-    /*private void DisableCollider(Collider2D col)
-    {
-        col.enabled = false;
-        StartCoroutine(ColliderCooldown(col));
-    }*/
-
+    
     IEnumerator ColliderCooldown(Collider2D col)
     {
         col.enabled = false;

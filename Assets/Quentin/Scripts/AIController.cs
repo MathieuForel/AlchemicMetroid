@@ -15,8 +15,12 @@ public class AIController : InputController
         return 1f;
     }
 
-    public override float RetreiveVerticalInput()
+    public override bool RetreiveVerticalInput()
     {
-        return 2f;
+        return true;
+    }
+    public override bool RetreiveAttackInput()
+    {
+        return true;
     }
 }

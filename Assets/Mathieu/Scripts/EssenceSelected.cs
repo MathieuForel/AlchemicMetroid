@@ -13,9 +13,16 @@ public class EssenceSelected : MonoBehaviour
     public GameObject GrassSprite;
     public GameObject WaterSprite;
 
+    public PlayerInventoryBehaviour PlayerInventory;
+
+    public void Start()
+    {
+        PlayerInventory = GameObject.FindWithTag("player").gameObject.GetComponent<PlayerInventoryBehaviour>();
+    }
+
     public void FireEssenceClicked()
     {
-        if (FireEssence == true)
+        if (FireEssence == true && PlayerInventory.FireEssenceStock > 0)
         {
             ResetEssenceClicked();
         }
@@ -25,11 +32,13 @@ public class EssenceSelected : MonoBehaviour
             FireEssence = true;
             FireSprite.SetActive(true);
         }
+
+        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
     }
 
     public void GrassEssenceClicked()
     {
-        if(GrassEssence == true) 
+        if(GrassEssence == true && PlayerInventory.GrassEssenceStock > 0) 
         {
             ResetEssenceClicked();
         }
@@ -39,11 +48,13 @@ public class EssenceSelected : MonoBehaviour
             GrassEssence = true;
             GrassSprite.SetActive(true);
         }
+
+        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
     }
 
     public void WaterEssenceClicked()
     {
-        if (WaterEssence == true)
+        if (WaterEssence == true && PlayerInventory.WaterEssenceStock > 0)
         {
             ResetEssenceClicked();
         }
@@ -53,6 +64,8 @@ public class EssenceSelected : MonoBehaviour
             WaterEssence = true;
             WaterSprite.SetActive(true);
         }
+
+        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
     }
 
     public void ResetEssenceClicked()
@@ -63,5 +76,7 @@ public class EssenceSelected : MonoBehaviour
         FireSprite.SetActive(false);
         GrassSprite.SetActive(false);
         WaterSprite.SetActive(false);
+
+        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
     }
 }

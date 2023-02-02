@@ -9,7 +9,7 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
 
-    public Vector2 getDirection{get {return direction;}} //get la variable private direction pour l'utiliser dans un autre script
+    [HideInInspector] public Vector2 getDirection{get {return direction;}} //get la variable private direction pour l'utiliser dans un autre script
     private Vector2 direction;
     private Vector2 desiredVelocity;
     private Vector2 velocity;

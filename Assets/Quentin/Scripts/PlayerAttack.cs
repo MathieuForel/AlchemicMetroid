@@ -8,114 +8,90 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private InputController input = null;
 
     [Header("Attack values")]
-    [SerializeField, Range(0f, 20f)] private float attackDmg = 5f;
-    [SerializeField, Range(0f, 20f)] private float attackRadius = 2f;
-    [SerializeField, Range(0f, 20f)] private float attackSpeed = 1f;
+    [SerializeField, Range(0f, 20f)] private float AttackDmg = 5f;
+    //[SerializeField, Range(0f, 20f)] private float AttackRadius = 2f;
+    [SerializeField, Range(0f, 20f)] private float AttackSpeed = 1f;
 
+    [Header("Rotating part")]
     public Transform partToRotate; //partie du player qui va tourner en fonction de la direction regardée
-    public GameObject currentHitObject;
 
-    //private var
+    [Header("Detection collision part")]
+    public GameObject currentHitObject;
+    [SerializeField] private GameObject attackCollider;
+    
+    //private script only var
     private bool isAttacking;
     private bool canAttack;
     private Rigidbody2D body;
-    private Vector2 attackSide;
-    private Vector3 attackSphere;
-    private float attackRange = 1f;
-
-    //sphere cast info
-    private float sphereRadius;
-    private float maxDistance;
-    public LayerMask layerMask;
-    private Vector3 origin;
-    private Vector3 direction;
-
+    private Vector2 AttackSide;
 
     private void Awake() 
     {
+        //attackCollider.enabled = false;
+        attackCollider.SetActive(false);
         body = GetComponent<Rigidbody2D>();
         canAttack = true;
-        attackSphere = transform.position;
     }
 
     private void Update() 
     {
         isAttacking |= input.RetreiveAttackInput();
-
-        origin = transform.position;
-        direction = attackSphere;
-        sphereRadius = attackRadius;
-        maxDistance = attackRange;
-        RaycastHit hit;
-        if(Physics.SphereCast(origin, sphereRadius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
-        {
-            currentHitObject = hit.transform.gameObject;
-        }
     }
 
     private void FixedUpdate() 
     {
         RotatePlayer();
-        attackSide = GetComponent<Move>().getDirection;
+        AttackSide = GetComponent<Move>().getDirection;
         if(isAttacking)
         {
             isAttacking = false;
-            Attack();
+            LaunchAttack();
         }
 
     }
 
-    //déclenche la séquence d'attaque
-    private void Attack()
+    private void LaunchAttack()//déclenche la séquence d'attaque si le cooldown est terminé
     {
-        if(canAttack == true && currentHitObject.tag == "Enemy")
+        if(canAttack == true)
         {
             canAttack = false;
             StartCoroutine(AttackCooldown());
-            if(attackSide.x > 0f)
-            {
-                
-                Debug.Log("Right");
-            }
-            else
-            {
-                Debug.Log("Left");
-            }
+            //attackCollider.enabled = true;
+            attackCollider.SetActive(true);
+            StartCoroutine(DeactiveAttackCollider());
         }
         
     }
 
-    //Cooldown avant de pouvoir attaquer a nouveau
-    IEnumerator AttackCooldown()
+    public void Attack(GameObject enemy)//Reçoit les informations de l'enemy touché et renvoie à ses stats
     {
-        Debug.Log("Attaque");
-        yield return new WaitForSeconds(attackSpeed);
-        canAttack = true;
-        Debug.Log("Reset");
+        Debug.Log("touche");
+        currentHitObject = enemy;
+        enemy.GetComponent<EnemyStats>().TakeDamage(AttackDmg);
     }
 
-    //change la sens du sprite et de la zone d'attaque 
-    private void RotatePlayer()
+    IEnumerator AttackCooldown()//Cooldown avant de pouvoir attaquer a nouveau
     {
-        if(attackSide.x > 0f)
+        yield return new WaitForSeconds(AttackSpeed);
+        canAttack = true;
+    }
+    
+    IEnumerator DeactiveAttackCollider()//Désactivation rapide du collider d'attaque
+    {
+        yield return new WaitForSeconds(0.1f);
+        //attackCollider.enabled = false;
+        attackCollider.SetActive(false);
+    }
+
+    private void RotatePlayer()//change le sens du sprite et de la zone d'attaque
+    {
+        if(AttackSide.x > 0f)
             {
                 partToRotate.rotation = Quaternion.Euler(0f, 0f, 0f);
-                attackRange = 1f;
-                attackSphere = transform.position;
-                attackSphere.x = attackSphere.x + attackRange;
-                
             }
-        if(attackSide.x < 0f)
+        if(AttackSide.x < 0f)
             {
                 partToRotate.rotation = Quaternion.Euler(0f, 180f, 0f);
-                attackRange = -1f;
-                attackSphere = transform.position;
-                attackSphere.x = attackSphere.x + attackRange;
             }
-    }
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackSphere, attackRadius);
     }
 }

@@ -4,14 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - fire
-  - grass
-  - water
   - player
-  - ennemy
-  - playerbullet
-  - ennemybullet
-  - platform
+  - Plateform
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Attack
   - 
   - 
   - 

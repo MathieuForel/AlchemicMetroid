@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CauldronSpelllBehaviour : MonoBehaviour
+public class CauldronSpellBehaviour : MonoBehaviour
 {
 
     public EssenceSelected Slot1;
@@ -15,6 +15,7 @@ public class CauldronSpelllBehaviour : MonoBehaviour
 
     public GameObject Player;
     public PlayerInventoryBehaviour PlayerInventory;
+    public SpellCasting PlayerSpell; 
 
     public GameObject FireBall;
     public GameObject Thorns;
@@ -31,7 +32,7 @@ public class CauldronSpelllBehaviour : MonoBehaviour
 
         Player = GameObject.FindWithTag("player").gameObject;
         PlayerInventory = GameObject.FindWithTag("player").gameObject.GetComponent<PlayerInventoryBehaviour>();
-        
+        PlayerSpell = GameObject.FindWithTag("player").gameObject.GetComponent<SpellCasting>();
     }
 
 
@@ -53,6 +54,14 @@ public class CauldronSpelllBehaviour : MonoBehaviour
         if (Slot1.WaterEssence) { WaterEssenceAmount += 1; }
         if (Slot2.WaterEssence) { WaterEssenceAmount += 1; }
         if (Slot3.WaterEssence) { WaterEssenceAmount += 1; }
+    }
+
+    public void Update()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            SpellActivation();
+        }
     }
 
     public void SpellActivation()
@@ -80,22 +89,39 @@ public class CauldronSpelllBehaviour : MonoBehaviour
 
     public void FireSpell()
     {
-        Instantiate(FireBall, Player.transform.position, Quaternion.identity);
+        PlayerInventory.FireEssenceStock -= 3;
+        PlayerSpell.FireSpell();
+        UsedSpell();
     }
 
     public void GrassSpell()
     {
-        Instantiate(Thorns, Thorns.transform.position, Quaternion.identity);
-        //HEAL 15 HEALTH TO PLAYER
+        PlayerInventory.GrassEssenceStock -= 3;
+        PlayerSpell.GrassSpell();
+        UsedSpell();
     }
 
     public void WaterSpell()
     {
-        Instantiate(Nimbus, Nimbus.transform.position, Quaternion.identity);
+        PlayerInventory.WaterEssenceStock -= 3;
+        PlayerSpell.WaterSpell();
+        UsedSpell();
     }
 
     public void MultiSpell()
     {
-        Instantiate(Geyser, Geyser.transform.position, Quaternion.identity);
+        PlayerInventory.FireEssenceStock -= 1;
+        PlayerInventory.GrassEssenceStock -= 1;
+        PlayerInventory.WaterEssenceStock -= 1;
+        PlayerSpell.MultiSpell();
+        UsedSpell();
+    }
+
+    public void UsedSpell()
+    {
+        Slot1.ResetEssenceClicked();
+        Slot2.ResetEssenceClicked();
+        Slot3.ResetEssenceClicked();
+        EssenceUpdate();
     }
 }

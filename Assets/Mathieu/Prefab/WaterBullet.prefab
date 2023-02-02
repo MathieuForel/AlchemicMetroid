@@ -134,4 +134,4 @@ MonoBehaviour:
   MaxSize: 1.5
   MaxSizeModification: 0.075
   _SpriteRenderer: {fileID: 0}
-  Poof: {fileID: 0}
+  Poof: {fileID: 4957622862491761895, guid: 77d7e0c1ab367be46982467e6a95fe11, type: 3}

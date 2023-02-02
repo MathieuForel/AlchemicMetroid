@@ -14,58 +14,69 @@ public class EssenceSelected : MonoBehaviour
     public GameObject WaterSprite;
 
     public PlayerInventoryBehaviour PlayerInventory;
+    public CauldronSpellBehaviour Cauldron;
 
     public void Start()
     {
         PlayerInventory = GameObject.FindWithTag("player").gameObject.GetComponent<PlayerInventoryBehaviour>();
+        Cauldron = this.gameObject.transform.parent.gameObject.GetComponent<CauldronSpellBehaviour>();
     }
 
     public void FireEssenceClicked()
     {
-        if (FireEssence == true && PlayerInventory.FireEssenceStock > 0)
-        {
-            ResetEssenceClicked();
-        }
-        else
+        if (PlayerInventory.FireEssenceStock > Cauldron.FireEssenceAmount && FireEssence == false)
         {
             ResetEssenceClicked();
             FireEssence = true;
             FireSprite.SetActive(true);
         }
+        else
+        {
+            if (FireEssence == true)
+            {
+                ResetEssenceClicked();
+            }
+        } 
 
-        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
+        this.gameObject.transform.parent.GetComponent<CauldronSpellBehaviour>().EssenceUpdate();
     }
 
     public void GrassEssenceClicked()
     {
-        if(GrassEssence == true && PlayerInventory.GrassEssenceStock > 0) 
-        {
-            ResetEssenceClicked();
-        }
-        else
+        if (PlayerInventory.GrassEssenceStock > Cauldron.GrassEssenceAmount && GrassEssence == false)
         {
             ResetEssenceClicked();
             GrassEssence = true;
             GrassSprite.SetActive(true);
         }
+        else
+        {
+            if (GrassEssence == true)
+            {
+                ResetEssenceClicked();
+            }
+        }
 
-        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
+        this.gameObject.transform.parent.GetComponent<CauldronSpellBehaviour>().EssenceUpdate();
     }
 
     public void WaterEssenceClicked()
     {
-        if (WaterEssence == true && PlayerInventory.WaterEssenceStock > 0)
-        {
-            ResetEssenceClicked();
-        }
-        else
+        if (PlayerInventory.WaterEssenceStock > Cauldron.WaterEssenceAmount && WaterEssence == false)
         {
             ResetEssenceClicked();
             WaterEssence = true;
             WaterSprite.SetActive(true);
         }
+        else
+        {
+            if (WaterEssence == true)
+            {
+                ResetEssenceClicked();
+            }
+        }
 
-        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
+        this.gameObject.transform.parent.GetComponent<CauldronSpellBehaviour>().EssenceUpdate();
     }
 
     public void ResetEssenceClicked()
@@ -77,6 +88,6 @@ public class EssenceSelected : MonoBehaviour
         GrassSprite.SetActive(false);
         WaterSprite.SetActive(false);
 
-        this.gameObject.transform.parent.GetComponent<CauldronSpelllBehaviour>().EssenceUpdate();
+        this.gameObject.transform.parent.GetComponent<CauldronSpellBehaviour>().EssenceUpdate();
     }
 }

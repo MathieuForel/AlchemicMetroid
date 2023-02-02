@@ -15,21 +15,21 @@ public class PlayerInventoryBehaviour : MonoBehaviour
         {
             Destroy(collision.gameObject.transform.parent.gameObject);
             FireEssenceStock += 1;
-            this.gameObject.transform.GetChild(1).GetComponentInChildren<TextMesh>().text = FireEssenceStock.ToString();
+            this.gameObject.transform.GetChild(0).GetComponentInChildren<TextMesh>().text = FireEssenceStock.ToString();
         }
 
         if (collision.gameObject.tag == "grass")
         {
             Destroy(collision.gameObject.transform.parent.gameObject);
             GrassEssenceStock += 1;
-            this.gameObject.transform.GetChild(2).GetComponentInChildren<TextMesh>().text = GrassEssenceStock.ToString();
+            this.gameObject.transform.GetChild(1).GetComponentInChildren<TextMesh>().text = GrassEssenceStock.ToString();
         }
 
         if (collision.gameObject.tag == "water")
         {
             Destroy(collision.gameObject.transform.parent.gameObject);
             WaterEssenceStock += 1;
-            this.gameObject.transform.GetChild(3).GetComponentInChildren<TextMesh>().text = WaterEssenceStock.ToString();
+            this.gameObject.transform.GetChild(2).GetComponentInChildren<TextMesh>().text = WaterEssenceStock.ToString();
         }
     }
 }

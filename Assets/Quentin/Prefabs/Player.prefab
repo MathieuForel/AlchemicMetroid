@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4262198196540385533
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 596d4bdaa169e6a42b57b2fb2de58e6f, type: 2}
-  jumpHeight: 5
+  jumpHeight: 7
   maxAirJumps: 0
   downwardMovementMultiplier: 3.5
   upwardMovementMultiplier: 2.5

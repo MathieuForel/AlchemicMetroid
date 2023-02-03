@@ -22,7 +22,7 @@ public class GrassSpellBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         LifeSpanManager();
-        this.gameObject.transform.Translate(Vector3.right * Time.deltaTime);
+        this.gameObject.transform.Translate(Vector3.right * Time.deltaTime * 2);
 
         WaitTime -= Time.deltaTime;
 

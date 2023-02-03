@@ -39,13 +39,8 @@ public class FireBullet : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(_SpriteRenderer.color.r, _SpriteRenderer.color.g, _SpriteRenderer.color.b, Life / LifeSpan);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 6)
-        {
-            Destroy(this.gameObject);
-        }
-
         if (collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
@@ -55,8 +50,24 @@ public class FireBullet : MonoBehaviour
         {
             Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
         }
-    }
 
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
+        }
+
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
+        }
+    }
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            Life -= 3 * Time.deltaTime;
+        }
+    }
     public void OnDestroy()
     {
         Instantiate(Poof, this.gameObject.transform.position, this.gameObject.transform.rotation);

@@ -6,6 +6,11 @@ public class DetectEnemy : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     private GameObject enemy;
+
+    public void Start()
+    {
+        player = GameObject.FindWithTag("Player").gameObject;
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.isTrigger != true && collider.gameObject.tag == "Enemy")

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4747200116712733989}
   - component: {fileID: 4747200116712733987}
   - component: {fileID: 4747200116712733986}
+  - component: {fileID: 2655689580990480196}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -40,10 +41,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7844297772779584445}
   - {fileID: 5875975412189987170}
   - {fileID: 5875975412621590791}
   - {fileID: 5875975411666961869}
+  - {fileID: 7844297772779584445}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,6 +375,20 @@ MonoBehaviour:
   GrassSpellPrefab: {fileID: 7599677652693519196, guid: 7c832adb72279d94e945794ade4ee8a7, type: 3}
   WaterSpellPrefab: {fileID: 8123830702763788457, guid: 6f0031fc2e2b52145b5dd9d779882bbc, type: 3}
   MultiSpellPrefab: {fileID: 8426842952351213296, guid: 6a0e83390a049b74ea9493563ef1a1fa, type: 3}
+  PlayerBody: {fileID: 1549288936100632526}
+--- !u!114 &2655689580990480196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124549490532165548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82667b34fd78c9e4ab08b11ce1533744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power: 1
 --- !u!1 &1549288936100632526
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +420,7 @@ Transform:
   - {fileID: 5806527041837793121}
   - {fileID: 1139291474844800946}
   m_Father: {fileID: 124549490532165545}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3987504803103267364
 GameObject:
@@ -757,7 +772,7 @@ Transform:
   - {fileID: 5875975412455340413}
   - {fileID: 5875975411120778317}
   m_Father: {fileID: 124549490532165545}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5875975412136174347
 GameObject:
@@ -874,7 +889,7 @@ Transform:
   - {fileID: 5875975412319364553}
   - {fileID: 5875975412332132620}
   m_Father: {fileID: 124549490532165545}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5875975412319364552
 GameObject:
@@ -1172,7 +1187,7 @@ Transform:
   - {fileID: 5875975412136174348}
   - {fileID: 5875975411424459593}
   m_Father: {fileID: 124549490532165545}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7766376021932229652
 GameObject:

@@ -45,6 +45,21 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
+        }
+
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
+        }
+
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
+        }
     }
 
     public void OnDestroy()

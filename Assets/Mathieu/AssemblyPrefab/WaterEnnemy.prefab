@@ -380,7 +380,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -388,7 +388,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1992197438099863048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,3 +442,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PV: 10
+  Poof: {fileID: 76588241863500251, guid: c2d24f0da0450e14ea26ddfa8265a5cf, type: 3}
+  EnnemyEssence: {fileID: 7199131333560407595, guid: f83e155c936996e47b1833dac402120b, type: 3}
+  EssenceAmount: 0
+  DamageTaken: 0
+  FireEnnemy: 0
+  WaterEnnemy: 1
+  GrassEnnemy: 0

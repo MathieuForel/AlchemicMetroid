@@ -35,9 +35,10 @@ public class FireSpellBehaviour : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Player")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(this.gameObject);
+            Life -= 1;
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<CircleCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
     }
 

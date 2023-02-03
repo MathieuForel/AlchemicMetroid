@@ -41,14 +41,6 @@ public class WaterSpellBehaviour : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(_SpriteRenderer.color.r, _SpriteRenderer.color.g, _SpriteRenderer.color.b, Life / LifeSpan);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag != "Player")
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
     public void OnDestroy()
     {
         Instantiate(Poof, this.gameObject.transform.position, this.gameObject.transform.rotation);

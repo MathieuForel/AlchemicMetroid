@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 8424882508304751880}
   - component: {fileID: 8424882508304751886}
   - component: {fileID: 8424882508304751885}
+  - component: {fileID: 1303329355}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: player
@@ -248,10 +249,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42ac0c037d42da49a336e7a781b5cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AirEssenceStock: 0
   FireEssenceStock: 0
   GrassEssenceStock: 0
   WaterEssenceStock: 0
+--- !u!114 &1303329355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8424882508304751882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4283632bff7a1da439b6f42a7391c2fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireSpellPrefab: {fileID: 3801814986355644295, guid: 781ec613483d188408231bed63afa6c1, type: 3}
+  GrassSpellPrefab: {fileID: 6790558272538869202, guid: 931d531c69d8cc94eb9577d139d205ff, type: 3}
+  WaterSpellPrefab: {fileID: 4535614626161841136, guid: 2a67f01bb6d7271479c22ea860561d2e, type: 3}
+  MultiSpellPrefab: {fileID: 7442749726046292196, guid: 2acf1ac06bb303c4b96b2b4fd073dc1b, type: 3}
 --- !u!1 &8424882508409215595
 GameObject:
   m_ObjectHideFlags: 0

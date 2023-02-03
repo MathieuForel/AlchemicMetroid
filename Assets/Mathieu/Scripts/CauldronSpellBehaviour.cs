@@ -17,11 +17,6 @@ public class CauldronSpellBehaviour : MonoBehaviour
     public PlayerInventoryBehaviour PlayerInventory;
     public SpellCasting PlayerSpell; 
 
-    public GameObject FireBall;
-    public GameObject Thorns;
-    public GameObject Nimbus;
-    public GameObject Geyser;
-
     public void Start()
     {
         Slot1 = this.gameObject.transform.GetChild(0).GetComponent<EssenceSelected>();
@@ -30,9 +25,9 @@ public class CauldronSpellBehaviour : MonoBehaviour
 
         EssenceUpdate();
 
-        Player = GameObject.FindWithTag("player").gameObject;
-        PlayerInventory = GameObject.FindWithTag("player").gameObject.GetComponent<PlayerInventoryBehaviour>();
-        PlayerSpell = GameObject.FindWithTag("player").gameObject.GetComponent<SpellCasting>();
+        Player = GameObject.FindWithTag("Player").gameObject;
+        PlayerInventory = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerInventoryBehaviour>();
+        PlayerSpell = GameObject.FindWithTag("Player").gameObject.GetComponent<SpellCasting>();
     }
 
 

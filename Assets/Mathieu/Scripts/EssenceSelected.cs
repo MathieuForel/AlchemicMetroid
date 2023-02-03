@@ -18,7 +18,7 @@ public class EssenceSelected : MonoBehaviour
 
     public void Start()
     {
-        PlayerInventory = GameObject.FindWithTag("player").gameObject.GetComponent<PlayerInventoryBehaviour>();
+        PlayerInventory = GameObject.FindWithTag("Player").gameObject.GetComponent<PlayerInventoryBehaviour>();
         Cauldron = this.gameObject.transform.parent.gameObject.GetComponent<CauldronSpellBehaviour>();
     }
 

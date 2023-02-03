@@ -24,10 +24,6 @@ public class WaterBullet : MonoBehaviour
         this.gameObject.transform.Translate(new Vector3(Speed * Time.deltaTime, 0, 0));
         this.gameObject.transform.localScale += new Vector3(-1.1f + (MaxSize * 5) / this.gameObject.transform.localScale.x, 1.1f - this.gameObject.transform.localScale.y / (MaxSize * 10), 0) * MaxSizeModification;
         LifeSpanManager();
-        if(this.gameObject.GetComponent<Collider>().isTrigger == true)
-        {
-            this.gameObject.GetComponent<Collider>().isTrigger = false;
-        }
     }
 
     public void LifeSpanManager()
@@ -41,26 +37,26 @@ public class WaterBullet : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(_SpriteRenderer.color.r, _SpriteRenderer.color.g, _SpriteRenderer.color.b, Life / LifeSpan); 
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 6 )
         {
-            this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
         }
 
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.tag == "platform")
+        if (collision.gameObject.tag == "Platform")
         {
-            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>(), true);
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
         }
 
-        if (collision.gameObject.tag == "ennemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>(), true);
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
         }
     }
 

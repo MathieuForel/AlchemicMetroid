@@ -51,9 +51,9 @@ public class GrassSpellBehaviour : MonoBehaviour
         Instantiate(GrassSpellPrefab, this.gameObject.transform.position, Quaternion.Euler(0, 0, this.gameObject.transform.right.z - 25), this.gameObject.transform);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ennemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
         }

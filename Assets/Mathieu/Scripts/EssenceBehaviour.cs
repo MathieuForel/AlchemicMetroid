@@ -14,7 +14,7 @@ public class EssenceBehaviour : MonoBehaviour
 
     public void Start()
     {
-        SphereColliderRadius = this.gameObject.GetComponent<SphereCollider>().radius;
+        SphereColliderRadius = this.gameObject.GetComponent<CircleCollider2D>().radius;
         EssencePosition = this.gameObject.transform.position;
     }
 
@@ -30,18 +30,18 @@ public class EssenceBehaviour : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             TouchedPlayer = true;
             Player = other.gameObject;
         }
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             Player = other.gameObject;
             PlayerPosition = other.transform.position;
@@ -49,9 +49,9 @@ public class EssenceBehaviour : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "player")
+        if (other.tag == "Player")
         {
             TouchedPlayer = false;
         }

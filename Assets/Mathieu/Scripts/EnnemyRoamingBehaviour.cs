@@ -68,9 +68,12 @@ public class EnnemyRoamingBehaviour : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
-        SetNewDestination();
+        if(Stop <= 0)
+        {
+            SetNewDestination();
+        }
     }
 
     public void PlayerDetected()

@@ -46,14 +46,14 @@ public class FireBullet : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(this.gameObject);
         }
 
-        if (collision.gameObject.tag == "ennemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>(), true);
+            Physics2D.IgnoreCollision(this.gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>(), true);
         }
     }
 

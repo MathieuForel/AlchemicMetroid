@@ -28,7 +28,7 @@ public class EnnemyFightingBehaviour : MonoBehaviour
 
     public void PlayerDetected()
     {
-        Player = GameObject.FindGameObjectWithTag("player");
+        Player = GameObject.FindGameObjectWithTag("Player");
         Direction = Player.transform.position - this.gameObject.transform.position;
         Angle = Mathf.Atan2(Direction.y, Direction.x) * Mathf.Rad2Deg;
         ShootPattern.transform.rotation = Quaternion.Euler(0, 0, Random.Range(Angle - Range, Angle + Range));
@@ -38,8 +38,6 @@ public class EnnemyFightingBehaviour : MonoBehaviour
             shoot();
             Coolingdown = Cooldown;
         }
-
-
     }
 
     public void shoot()

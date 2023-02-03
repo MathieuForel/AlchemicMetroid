@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3872165254376025324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8464855d8fd4c794ab7a99940d102420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 5
   Stop: 0
   WaitingTime: 5
-  StayWaiting: 2
-  Range: 1
-  MaxDistance: 3
+  StayWaiting: 5
+  Range: 2
+  MaxDistance: 5
+  Offset: 3
   facing: 0
   Destination: {x: 0, y: 0, z: 0}
 --- !u!114 &3872165254376025325
@@ -338,7 +339,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.000000059604645, y: -1.1368684e-13}

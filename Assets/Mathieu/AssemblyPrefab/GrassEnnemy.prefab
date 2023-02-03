@@ -195,6 +195,7 @@ MonoBehaviour:
   StayWaiting: 2
   Range: 3
   MaxDistance: 10
+  Offset: 1
   facing: 0
   Destination: {x: 0, y: 0, z: 0}
 --- !u!114 &2455138321360956462

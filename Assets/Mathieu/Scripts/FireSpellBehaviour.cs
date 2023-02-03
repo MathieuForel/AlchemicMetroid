@@ -7,6 +7,7 @@ public class FireSpellBehaviour : MonoBehaviour
 {
     public float LifeSpan;
     public float Life;
+    public float Speed;
 
     public SpriteRenderer _SpriteRenderer;
     public GameObject Poof;
@@ -19,7 +20,7 @@ public class FireSpellBehaviour : MonoBehaviour
     void Update()
     {
         LifeSpanManager();
-        this.gameObject.transform.Translate(Vector3.right * Time.deltaTime);
+        this.gameObject.transform.Translate(Vector3.right * Time.deltaTime * Speed);
     }
 
     public void LifeSpanManager()

@@ -14,13 +14,13 @@ public class EssenceBehaviour : MonoBehaviour
 
     public void Start()
     {
+        PlayerPosition = this.transform.position;
         SphereColliderRadius = this.gameObject.GetComponent<CircleCollider2D>().radius;
         EssencePosition = this.gameObject.transform.position;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
-
         EssencePosition = this.gameObject.transform.position;
 
         if (TouchedPlayer == true)

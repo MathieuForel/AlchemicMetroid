@@ -11,6 +11,7 @@ public class EnnemyRoamingBehaviour : MonoBehaviour
     public float StayWaiting;
     public float Range;
     public float MaxDistance;
+    public float Offset;
 
     public float facing;
 
@@ -56,7 +57,7 @@ public class EnnemyRoamingBehaviour : MonoBehaviour
 
     public void SetNewDestination()
     {
-        Destination = new Vector3(Random.Range(-MaxDistance, MaxDistance), Random.Range(-MaxDistance, MaxDistance));
+        Destination = new Vector3(this.gameObject.transform.position.x + Random.Range(-MaxDistance, MaxDistance), this.gameObject.transform.position.y + Random.Range(-MaxDistance, MaxDistance) / Offset);
 
         if((Destination.x - this.gameObject.transform.position.x) > 0)
         {
@@ -70,9 +71,17 @@ public class EnnemyRoamingBehaviour : MonoBehaviour
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if(Stop <= 0)
+        if (WaitingTime < Stop)
+        {
+            //Destination = this.gameObject.transform.position;
+            StayWaiting -= Time.deltaTime;
+        }
+
+        if (StayWaiting < 0)
         {
             SetNewDestination();
+            Stop = 0;
+            StayWaiting = (MaxDistance * WaitingTime) / Speed + Offset;
         }
     }
 

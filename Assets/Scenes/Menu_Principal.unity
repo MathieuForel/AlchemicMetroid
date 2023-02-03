@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449192e51d25edd4d8cc8ff3171a7b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Antony_Scene
+  levelToLoad: Level1
 --- !u!1 &1800041906
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - player
   - Plateform
   - Enemy
+  - EnemyBullet
+  - Fire
+  - Water
+  - Grass
+  - PlayerBullet
+  - playerbullet
+  - FireSpell
+  - GrassSpell
+  - WaterSpell
+  - MultiSpell
   layers:
   - Default
   - TransparentFX
